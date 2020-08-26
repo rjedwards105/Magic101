@@ -3,6 +3,7 @@ public class Monster extends Enemy
     //instance variables
     String terrain;
     boolean hasHorns;
+    static int countMonsters = 0;
 
     //constructors
     public Monster(String name, int might, boolean isHostile, String terrain, boolean hasHorns)
@@ -10,6 +11,7 @@ public class Monster extends Enemy
         super(name, might, isHostile);
         this.terrain = terrain;
         this.hasHorns = hasHorns;
+        countMonsters++;
     }// end full constructor
 
     public Monster()
@@ -17,7 +19,41 @@ public class Monster extends Enemy
         super();
         terrain = "land";
         hasHorns = true;
+        countMonsters++;
     }//end null constructor
+
+    //getters
+    public String getTerrain()
+    {
+        return terrain;
+    }//end getTerrain
+
+    public boolean getHasHorns()
+    {
+        return hasHorns;
+    }//end getHasHorns
+
+    public static int getCountMonsters()
+    {
+        return countMonsters;
+    }//end getCountMonsters
+
+    //Setters
+    public void setTerrain(String terrain)
+    {
+        this.terrain = terrain;
+    }//end setTerrain
+
+    public void setHasHorns(boolean hasHorns)
+    {
+        this.hasHorns = hasHorns;
+    }//end setHasHorns
+
+    public void  setCountMonsters(int countMonsters)
+    {
+        this.countMonsters = countMonsters;
+    }//end setCountMonsters
+
 
     //BrainMethods
     public String mightReact()
@@ -29,7 +65,7 @@ public class Monster extends Enemy
         else if (might >= 10 && might < 20)
         {
             return "Careful";
-        }//endd else if
+        }//end else if
         else          //(might > 20)
         {
             return "Whoa!";
@@ -50,7 +86,7 @@ public class Monster extends Enemy
         {
             return "Bummer for you!";
         }
-    }
+    }// end brain method compareTerrain
 
 
     //toString   this is the test output method
